@@ -1,4 +1,9 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_personal_expenses_tracker/models/enums/navigation_items.dart';
+import 'package:flutter_personal_expenses_tracker/pages/barchart_page.dart';
+import 'package:flutter_personal_expenses_tracker/pages/home_page.dart';
+import 'package:flutter_personal_expenses_tracker/pages/myprofile_page.dart';
+import 'package:flutter_personal_expenses_tracker/pages/pie_chart_page.dart';
 import 'package:flutter_personal_expenses_tracker/responsive.dart';
 import 'package:flutter_personal_expenses_tracker/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +65,32 @@ class _NavigationPanelState extends State<NavigationPanel> {
                             setState(() {
                               activeTab = e.index;
                             });
+                            if (e.icon == Icons.home) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                              );
+                            } else if (e.icon == Icons.bar_chart) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const BarChartPage()),
+                              );
+                            } else if (e.icon == Icons.pie_chart) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const PiechartPage()),
+                              );
+                            } else if (e.icon == Icons.person) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MyProfilePage()),
+                              );
+                            }
                           },
                           icon: e.icon,
                           isActive: e.index == activeTab,
